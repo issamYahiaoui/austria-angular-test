@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WeatherApiComponent } from './weather-api/weather-api.component';
 import { MatCardModule  } from '@angular/material/card';
 import { MatGridListModule  } from '@angular/material/grid-list';
 import { MatFormFieldModule  } from '@angular/material/form-field';
@@ -13,23 +12,23 @@ import { MatSelectModule  } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule  } from '@angular/material/divider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './services/weather.service';
+import { FormComponent } from './form/form.component';
+import { OverviewComponent } from './overview/overview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherApiComponent
+    FormComponent,
+    OverviewComponent
   ],
   imports: [
 
-
-
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule ,
     MatCardModule ,
@@ -45,7 +44,7 @@ import { WeatherService } from './services/weather.service';
     HttpClientModule,
     MatProgressSpinnerModule
   ],
-  providers: [WeatherService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

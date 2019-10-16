@@ -16,6 +16,7 @@ export class WeatherService {
 
 
   getWeather=(city,type)=>{
+    
     let url = this.weatherApiUrl+ '?q=' +city + '&appid=' + this.weatherApiKey
     console.log('request url', url)
     return this.http.get(url)

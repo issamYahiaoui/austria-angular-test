@@ -36,55 +36,20 @@
   <br>
 
   <!-- Resources -->
-  <h2>Angular API Test</h2>
+  <h2>Angular Form Test</h2>
   <div class="spacer"></div>
-  <p class="text-center">Create an Angular application consuming the given REST-API. Create an input form to enter a location/city name. Create categories for min. three types of weather (rain, cloudy, sunny) and display the matching weather category in an appealing way.</p>
+  <p class="text-center">
+        Create an Angular application with two pages. On the First one there should be an input form where the user can input personal data. At least with the following fields: first name, last name, address, mail, phone.
+        After a button click, the values should be presented on an “overview page”.
+        The focus of this example is the design of that user interface, as well as the technique for the validation of the inputs.
+  </p>
   <div class="spacer"></div>
+
    
-   
-   <br><br>
-  <mat-card class="cardContainer" >
-    <form class="form-container" [formGroup]="weatherForm"> 
-        
-          <mat-form-field>
-            <input #city matInput type = "text" name = "city" matInput placeholder="location/city name ..."  formControlName="city" required>
-          </mat-form-field>
-        
-          <mat-form-field>
-            <mat-select #type  placeholder="Weather's type :"  name= "type"  (selectionChange)="changeType($event)"  formControlName="type" required>
-              <mat-option value="rain">Rain</mat-option>
-              <mat-option value="cloudy">Cloudy</mat-option>
-              <mat-option value="sunny">Sunny</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-     
-              <button  mat-raised-button color="primary" type = "submit" (click) = "onSubmit(city.value, type.value)" >
-                Fetch Weather
-              </button>
-      
-
-    </form>
-    <div class="result-container">
-        
-        <br>
-        <div class="error-block" *ngIf="submitted && ( handleError('city', 'required') || handleError('type', 'required') )">
-            You must fill all the fields
-          </div>
-        <br>
-        <mat-spinner diameter="50" *ngIf="loading===true"></mat-spinner>
-        <mat-list *ngIf="loading===false">
-          <mat-list-item >The Weather is :  <span class="result"> {{ weatherData.description }}</span></mat-list-item>
-          <mat-list-item > Rain : <span class="result"> {{ weatherData.rain || 'None' }}</span></mat-list-item>
-          <mat-list-item > Clouds : <span class="result"> {{ weatherData.clouds || 'None' }}</span></mat-list-item>
-        </mat-list>
-    </div>
-  </mat-card>
-
- 
+  <router-outlet></router-outlet>
   
 
- 
+
 
   <!-- Footer -->
   <footer>
@@ -104,4 +69,3 @@
 
 
 
-<router-outlet></router-outlet>
