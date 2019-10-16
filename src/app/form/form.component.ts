@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -18,20 +19,31 @@ export class FormComponent implements OnInit {
   loading = null ;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
   ) {
     this.createForm();
   }
 
   createForm() {
     this.form = this.fb.group({
-      firstname: [''],
-      lastname: [''],
-      email: [''],
-      address: [''],
-      phone: [''],
+      firstname: ['',Validators.required],
+      lastname: ['',Validators.required],
+      email: ['',[Validators.email,Validators.required]],
+      address: ['',Validators.required],
+      phone: ['',[Validators.maxLength(10),Validators.minLength(10),Validators.required]],
     });
   }
+
+  submitForm(event){
+    console.log('Submitting ...')
+    console.log(this.form.value)
+    if(this.form.valid)   this.router.navigate(['/overview']);
+  }
+
+
+
+
 
   
 }
