@@ -1,11 +1,22 @@
 <mat-card class="cardContainer">
 
 
+    <mat-list>
+        <mat-list-item>First Name : <span class="result"> {{ data.firstname }}</span></mat-list-item>
+        <mat-list-item>Last Name : <span class="result"> {{ data.lastname }}</span></mat-list-item>
+        <mat-list-item>Email : <span class="result"> {{ data.email }}</span></mat-list-item>
+        <mat-list-item>Phone : <span class="result"> {{ data.phone }}</span></mat-list-item>
+        <mat-list-item>Address : <span class="result"> {{ data.address }}</span></mat-list-item>
+    </mat-list>
 
-    
 
-      
-    
-      
-    
+    <br><br>
+    <div class="text-center">
+            <button mat-raised-button color="primary"    (click)="goBackToForm($event)" >
+                    Go back to form
+            </button>
+    </div>
+
+
+
 </mat-card>

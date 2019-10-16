@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormService } from '../services/form.service';
 
 @Component({
   selector: 'app-overview',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private formService: FormService,
+  ) { }
+
+  data
 
   ngOnInit() {
+
+    this.data = this.formService.data
+    console.log('data' , this.data)
   }
 
+
+  goBackToForm(){
+    this.router.navigate(['/form']);
+  }
 }

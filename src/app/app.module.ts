@@ -16,7 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule  } from '@angular/material/divider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { WeatherService } from './services/weather.service';
+import { FormService } from './services/form.service';
 import { FormComponent } from './form/form.component';
 import { OverviewComponent } from './overview/overview.component';
 
@@ -27,6 +27,7 @@ import { OverviewComponent } from './overview/overview.component';
     OverviewComponent
   ],
   imports: [
+
 
     BrowserModule,
     AppRoutingModule,
@@ -44,7 +45,7 @@ import { OverviewComponent } from './overview/overview.component';
     HttpClientModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [ FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

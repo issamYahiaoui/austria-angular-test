@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormService } from '../services/form.service';
 
 @Component({
   selector: 'app-form',
@@ -21,6 +22,8 @@ export class FormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private formService: FormService,
+
   ) {
     this.createForm();
   }
@@ -38,7 +41,10 @@ export class FormComponent implements OnInit {
   submitForm(event){
     console.log('Submitting ...')
     console.log(this.form.value)
-    if(this.form.valid)   this.router.navigate(['/overview']);
+    if(this.form.valid)   {
+      this.formService.data = this.form.value
+      this.router.navigate(['/overview', {data : this.form.value}]);
+    }
   }
 
 
